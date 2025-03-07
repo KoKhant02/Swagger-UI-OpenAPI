@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount unit for ubuntu-desktop-installer, revision 675
+Before=snapd.service
+After=zfs-mount.service
+
+[Mount]
+What=/var/lib/snapd/snaps/ubuntu-desktop-installer_675.snap
+Where=/snap/ubuntu-desktop-installer/675
+Type=squashfs
+Options=nodev,ro,x-gdu.hide,x-gvfs-hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=default.target multi-user.target
